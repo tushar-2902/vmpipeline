@@ -35,6 +35,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 
+  # checkov:skip=CKV_AZURE_50: "Nginx installation via custom_data is intentional"
+
    custom_data = base64encode(<<EOF
 #!/bin/bash
 sudo apt-get update
